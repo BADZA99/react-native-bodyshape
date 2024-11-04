@@ -20,8 +20,10 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 // iconss
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 // npx expo start --port 19000
+// npx expo install @expo-google-fonts/lato pour installer des fonts 
 
 const tab=createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -68,7 +70,8 @@ export default function App() {
     }
 
   return (
-    
+     <GestureHandlerRootView style={{ flex: 1 }}>
+
     <NavigationContainer>
       <Stack.Navigator
       screenOptions={{
@@ -78,5 +81,6 @@ export default function App() {
         <Stack.Screen name="TanNav" component={TabNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
+     </GestureHandlerRootView>
   );
 }
