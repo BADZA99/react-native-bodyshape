@@ -68,6 +68,7 @@ export default function App() {
     }
 
   return (
+    
     <NavigationContainer>
       <Stack.Navigator
       screenOptions={{
