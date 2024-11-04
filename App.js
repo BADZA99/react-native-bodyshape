@@ -8,42 +8,36 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { Human } from "./src/Components/Human.jsx";
+
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import WorkoutScreen from "./src/Screens/WorkoutScreen";
+import TimerScreen from "./src/Screens/TimerScreen";
+import CalculationScreen from "./src/Screens/CalculationScreen";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 // npx expo start --port 19000
 
-export default function App() {
-  const [age, setAge] = React.useState(0);
+const tab=createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
-  function increaseAge() {
-    setAge(age + 1);
-    if (age > 30) {
-      Alert.alert("You are not allowed to increase your age");
+export default function App() {
+  function TabNavigator() {
+    return (
+      <tab.Navigator>
+        <tab.Screen name="Workout" component={WorkoutScreen} />
+        <tab.Screen name="Timer" component={TimerScreen} />
+        <tab.Screen name="Calculation" component={CalculationScreen} />
+      </tab.Navigator>
+    );
     }
-    console.log(age);
-  }
 
   return (
-    <SafeAreaProvider>
-      <SafeAreaView>
-        <Human />
-        <TouchableOpacity onPress={increaseAge}>
-          <Text style={{ fontSize: 20 }}>augmenter</Text>
-        </TouchableOpacity>
-
-        <Text style={{ fontSize: 20, color: "blue" }}>Age: {age}</Text>
-      </SafeAreaView>
-      {Platform.OS === "android" && (
-        <Text style={{ fontSize: 20, color: "blue" }}>hello fron android</Text>
-      )}
-      {Platform.OS === "ios" && (
-        <Text style={{ fontSize: 20, color: "blue" }}>hello fron ios</Text>
-      )}
-
-      <View className="flex-1 items-center justify-center bg-gray-600">
-        <Text className="text-yellow-200 text-3xl">Hey! Welcome.</Text>
-      </View>
-    </SafeAreaProvider>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="TanNav" component={TabNavigator} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
