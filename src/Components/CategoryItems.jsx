@@ -25,12 +25,12 @@ const renderWorkoutItem = ({ item }) => (
       source={item.ImgSource}
       className="rounded-2xl overflow-hidden h-36 w-40 bg-red-500 mx-2 "
     >
-      <View className="">
-        <View>
+      <View className=" flex-1 justify-between m-3">
+        <View className="flex flex-row  items-center space-x-1">
           <FontAwesome5 name="dumbbell" size={15} color="white" />
-          <Text className="">{item.NumberOfExercises}</Text>
+          <Text className="text-white font-bold tracking-wider">{item.NumberOfExercises}</Text>
         </View>
-        <Text className="">{item.Title}</Text>
+        <Text className="text-white font-medium tracking-wider">{item.Title}</Text>
       </View>
     </ImageBackground>
   </TouchableOpacity>
