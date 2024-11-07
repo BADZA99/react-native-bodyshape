@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import WorkoutOTD from '../Components/WorkoutOTD'
 import Separator from '../Components/Separator'
 import Category from '../Components/Category'
+import Exercise from '../Components/Exercise'
 
 
 const WorkoutScreen = () => {
@@ -15,6 +16,8 @@ const WorkoutScreen = () => {
     <WorkoutOTD/>
     <Separator/>
     <Category/>
+    <Separator/>
+    <Exercise/>
     </SafeAreaView>
   )
 }

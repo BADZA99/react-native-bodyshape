@@ -7,7 +7,7 @@ const Category = () => {
   return (
     <View>
       <View className="flex flex-row justify-between items-center mx-10 mb-3">
-        <Text className='text-xl font-bold'>Category</Text>
+        <Text className='text-xl font-bold'>Categories</Text>
         <AntDesign name="swapright" size={30} color="black" />
       </View>
       {/* category items */}
